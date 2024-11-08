@@ -3,7 +3,7 @@
 $host = 'localhost';
 $dbname = 'todolist';
 $user = 'root';
-$pass = 'root';
+$pass = '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);

@@ -15,9 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim(htmlspecialchars($_POST['email']));
 
     if (!empty($name) && !empty($email)) {
-        $query = $pdo->prepare("SELECT * FROM user WHERE email = :email AND name = :name");
+        $query = $pdo->prepare("SELECT * FROM users WHERE email = :email AND name = :name");
         $query->bindParam(':email', $email);
         $query->bindParam(':name', $name);
+        $query->execute();
         $user = $query->fetch();
 
         if ($user) {
